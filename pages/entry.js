@@ -156,6 +156,13 @@ export default function EntryPage({ siteConfig }) {
                 name="phone"
                 register={register}
                 required
+                validationRules={{
+                  pattern: {
+                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                    message: "Invalid phone number",
+                  },
+                }}
+                error={errors.phone}
               />
               <TextInput
                 label="Unique Code*"
