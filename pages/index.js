@@ -14,7 +14,7 @@ export default function Home({ siteConfig }) {
     ],
     body: [
       <>
-        <p className="logo-image bt-x-dp-wt-headline">
+        <p className="logo-image ">
           <span className="visuallyhidden">Win two full a trip for two at the Prestigious BMW PGA Championship</span>
         </p>
       </>
@@ -31,7 +31,7 @@ export default function Home({ siteConfig }) {
     ],
     body: [
       <>
-        <p className="logo-image bt-x-dp-wt-headline">
+        <p className="logo-image ">
           <span className="visuallyhidden">Win tickets to the Gallagher Premiership Rugby Final</span>
         </p>
         <p className="subhead-copy">
@@ -57,7 +57,7 @@ export default function Home({ siteConfig }) {
       ],
       body: [
         <>
-          <p className="logo-image bt-x-dp-wt-headline">
+          <p className="logo-image ">
             <span className="visuallyhidden">Win two full access tickets to the Irish Open at the K Club Resort</span>
           </p>
         </>
@@ -93,7 +93,7 @@ export default function Home({ siteConfig }) {
         ))}
       </div>
       <button className='cta' onClick={() => router.push('/entry')}>
-        Continue
+        Enter now
       </button>
     </main>
   );

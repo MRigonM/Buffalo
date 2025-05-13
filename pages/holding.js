@@ -19,11 +19,12 @@ export default function HoldingPage({ siteConfig }) {
         <span className="visuallyhidden">Buffalo Trace</span>
       </h1>
 
-      <p className="headline typography-headline typeface-secondary text-center">
-        We’re not quite open yet,<br />
-        check back in on<br />
-        <strong className="date">{formatDate(start)}</strong>
+      <p className="headline typography-headline typeface-secondary text-center mb-2">
+        Sorry, you’re a little early, this promotion isn’t open just yet
       </p>
+      <p className="text-center">Please come back
+        <br/> and enter after
+        <br/>xx/xx/xxxx.</p>
     </div>
     </div>
     </main>

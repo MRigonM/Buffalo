@@ -5,14 +5,14 @@ export default function ClosedPage({ siteConfig }) {
   const sharedBtGolfCopy = {
     title: 'Now Closed',
     body: [
-      <>Unfortunately the competition is now closed. Head to our social channels to keep up to date with future promotions.</>,
+      <>Unfortunately the promotion is now closed</>,
     ],
   };
 
   const sharedBtRugbyCopy = {
     title: 'Now Closed',
     body: [
-      <>Thank you for your entry, unfortunately the competition is now closed.</>,
+      <>In the meantime, have a scroll on our socials for more Freixenet content.</>,
     ],
   };
 
@@ -39,7 +39,7 @@ export default function ClosedPage({ siteConfig }) {
     <div>
     <div className="_content">
       <h1 className="logo-image bt-logo">
-        <span className="visuallyhidden">Buffalo Trace</span>
+        <span className="visuallyhidden">Freixenet</span>
       </h1>
       <h2 className="headline typography-headline-elevated typeface-secondary uppercase">{title}</h2>
 

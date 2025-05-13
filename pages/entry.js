@@ -77,7 +77,7 @@ export default function EntryPage({ siteConfig }) {
     <main className="_main">
       <div className="_content">
         <h1 className="logo-image bt-logo">
-          <span className="visuallyhidden">Buffalo Trace</span>
+          <span className="visuallyhidden">Freixenet</span>
         </h1>
 
         <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase">
@@ -87,23 +87,30 @@ export default function EntryPage({ siteConfig }) {
         <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
           <TextInput
             label="First Name*"
-            placeholder="First Name*"
+            placeholder="Full Name*"
             name="firstName"
             register={register}
             required
             error={errors.firstName}
           />
           <TextInput
-            label="Last Name*"
-            placeholder="Last Name*"
-            name="lastName"
-            register={register}
-            required
-            error={errors.lastName}
-          />
-          <TextInput
             label="Email Address*"
             placeholder="Email Address*"
+            name="email"
+            register={register}
+            required
+            validationRules={{
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Invalid email format",
+              },
+            }}
+            error={errors.email}
+          />
+
+          <TextInput
+            label="Confirm Email Address*"
+            placeholder="Confirm Email Address*"
             name="email"
             register={register}
             required
@@ -127,61 +134,34 @@ export default function EntryPage({ siteConfig }) {
             />
           )}
 
-          {formVersion === '3' && (
-            <>
-              <TextInput
-                label="Unique Code*"
-                placeholder="Unique Code*"
-                name="uniqueCode"
-                register={register}
-                required
-                error={errors.uniqueCode}
-              />
-              <Dropdown
-                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                placeholder="Where did you purchase from?"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-            </>
-          )}
-
           {formVersion === '4' && (
-            <>
-              <TextInput
-                label="Phone Number*"
-                placeholder="Phone Number*"
-                name="phone"
-                register={register}
-                required
-                validationRules={{
-                  pattern: {
-                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
-                    message: "Invalid phone number",
-                  },
-                }}
-                error={errors.phone}
-              />
-              <TextInput
-                label="Unique Code*"
-                placeholder="Unique Code*"
-                name="uniqueCode"
-                register={register}
-                required
-                error={errors.uniqueCode}
-              />
-              <Dropdown
-                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                placeholder="Where did you purchase from?"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-              
-            </>
+              <>
+                <TextInput
+                    label="Phone Number*"
+                    placeholder="Phone Number*"
+                    name="phone"
+                    register={register}
+                    required
+                    validationRules={{
+                      pattern: {
+                        value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                        message: "Invalid phone number",
+                      },
+                    }}
+                    error={errors.phone}
+                />
+
+                <text className="text-center">Tell us where you found us</text>
+                <Dropdown
+                    options={['From Instagram', 'From Facebook', 'Other']}
+                    placeholder="Click here"
+                    name="source"
+                    register={register}
+                    required
+                    error={errors.source}
+                />
+
+              </>
           )}
 
           <p className="typography-body-reduced text-center">

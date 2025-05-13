@@ -63,12 +63,8 @@ export default function AgeGate({ onAgeConfirmed }) {
       <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <div className="age-form">
-            <figure className="logo-image bt-logo">
-              <figcaption className="visuallyhidden">Buffalo Trace</figcaption>
-            </figure>
             <div className="typeface-secondary">
-              <p>You must be over 18 to enter.</p>
-              <p>Please confirm your date of birth.</p>
+              <p>You must be <br/> over 18 to <br/> enter this site </p>
             </div>
 
             <div className="input-group">
@@ -107,11 +103,7 @@ export default function AgeGate({ onAgeConfirmed }) {
             </div>
             {error && <p className="error">{error}</p>}
 
-            <p className="typography-body-reduced">
-              This site uses cookies. <Link href="https://www.sazerac.ie/cookie-notice/" rel="noopener noreferrer" target="_blank">Cookie Policy</Link>. By clicking enter you are agreeing to the{' '}
-              <Link href="/terms">terms of use</Link> and the{' '}
-              <Link href="https://www.sazerac.ie/cookie-notice/" rel="noopener noreferrer" target="_blank">Privacy Policy</Link>. This information will not be used for marketing purposes.
-            </p>
+            <p className="typography-body-reduced">Please enter <br/> your date <br/> birth</p>
             <button type="submit">Enter</button>
           </div>
         </form>

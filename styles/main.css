@@ -115,10 +115,10 @@ a {
 
 :root {
   --bt-brown: #BE863C;
-  --bt-cream:#F7F2D7;
+  --bt-cream:#F5FFFA;
   --bt-green:#1B3C33;
   --bt-rugby-green: #1C453D;
-  --bt-orange: #AD441D;
+  --bt-black: #000000;
 
   --typeface-primary: 'EBGaramond', serif;
   --typeface-secondary: 'Matrix-II',serif;
@@ -231,37 +231,37 @@ body.theme-bt-golf-tesco ._container {
   background-size: cover;
 }
 .bt-logo {
-  background-image: url('/images/bt-logo_2x.png');
+  background-image: url('/images/freixenet.png');
 }
 
 .bt-x-dp-wt-logo {
-  background-image: url('/images/bt-x-dp-wt-logo_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 266px;
   height: 34px;
   margin-top: 20px;
 }
 body.theme-bt-golf-supervalu-dunnes .bt-x-dp-wt-logo,
 body.theme-bt-golf-on-trade .bt-x-dp-wt-logo {
-  background-image: url('/images/bt-x-dp-wt-logo-amgen_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 265px;
   height: 34px;
 }
 
 .bt-x-dp-wt-headline {
-  background-image: url('/images/bt-x-dp-wt-kclub-headline_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
 }
 body.theme-bt-golf-supervalu-dunnes .bt-x-dp-wt-headline {
-  background-image: url('/images/bt-x-dp-wt-kclub-vip-headline_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
 }
 
 body.theme-bt-golf-tesco .bt-x-dp-wt-headline {
-  background-image: url('/images/bt-x-dp-wt-headline_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 266px;
   height: 192px;
   margin-top: 25px;
@@ -269,13 +269,13 @@ body.theme-bt-golf-tesco .bt-x-dp-wt-headline {
 
 body[class^="theme-bt-rugby-"] .bt-logo,
 body[class^="theme-bt-rugby-"] .bt-x-dp-wt-logo {
-  background-image: url('/images/bt-x-premiership-rugby.png');
+  background-image: url('/images/freixenet.png');
   width: 222px;
   height: 104px;
   margin-top: 25px;
 }
 body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
-  background-image: url('/images/bt-x-rugby-headline_2x.png');
+  background-image: url('/images/freixenet.png');
   width: 273px;
   height: 242px;
   margin-top: 25px;
@@ -338,7 +338,7 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
   text-align: center;
   font-size: var(--font-size-headline-reduced);
   font-family: var(--typeface-secondary);
-  border: 3px solid var(--bt-orange);
+  border: 3px solid var(--bt-black);
 }
 .modal .age-form .error {
 
@@ -522,7 +522,7 @@ margin-top: 25px;
 }
 .page-holding .date {
  
-  background-color: var(--bt-orange);
+  background-color: var(--bt-black);
   line-height: 33px;
   display: inline-block;
   margin-top: 20px;
@@ -559,7 +559,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
   margin-top: 15px;
 }
 
-.page-terms .footer {
+.page-terms {
   margin-top: 50px;
 }
 
@@ -618,7 +618,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
 .page-entry .entry-form .dropdown,
 .page-entry .entry-form .dropdown select {
   width: 100%;
-  background: var(--bt-orange);
+  background: var(--bt-black);
 }
 .page-entry .entry-form .textinput input {
   padding-inline: 10px;
@@ -679,7 +679,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
   display: block;
   width: 4px;
   height: 10px;
-  border: solid var(--bt-orange);
+  border: solid var(--bt-black);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   margin: -5px 0 0 2px;
@@ -758,7 +758,7 @@ body[class^="theme-bt-rugby-"].page-goodluck .section-receipe {
  
 }
 body[class^="theme-bt-rugby-"].page-goodluck .section-receipe ._content {
-  background-color: var(--bt-orange);
+  background-color: var(--bt-black);
   padding-block: 20px;
 
 }
@@ -779,7 +779,52 @@ body[class^="theme-bt-rugby-"].page-goodluck .section-receipe .row {
    
 }
 
-.page-goodluck .footer ._content {
+.page-goodluck ._content {
   align-items: center;
   
+}
+
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-links a,
+.footer-links span {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer-social-text a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-responsibility {
+  color: #fff;
+}
+
+.instagram-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('/public/images/instagram.svg'); /* Replace with actual path */
+  background-size: cover;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

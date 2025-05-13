@@ -1,38 +1,21 @@
 import Image from 'next/image';
 export default function GoodLuck({ siteConfig }) {
   const sharedBtGolfCopy = {
-    title: 'Thank you for entering',
+    title: 'Thank you for entering good luck',
     body: [
       <>
-      <p className="text-center">If you’re a lucky winner we’ll reach out to the email address you provided, so please keep a look out in your inbox.</p>
-      <h3 className="subhead text-center">Meanwhile, why not try a Buffalo & Ginger Ale?</h3>
-      <div className="recipe"><p><strong>50ml</strong> Buffalo Trace Topped with ginger ale Garnish with a wedge of lime</p></div>
+        <p className="text-center">We will be drawing a winner on xx/xx/xxxx <br/>
+          Please keep an eye in your email inbox to see if you&#39;re one of our lucky winners!</p>
       </>
     ],
   };
 
   const sharedBtRugbyCopy = {
-    title: 'Thank you for entering',
+    title: 'Thank you for entering good luck',
     body: [
       <>
-      <p className="text-center">If you’re a lucky winner we’ll reach out to the email address you provided on
-Tuesday 3rd June 2025
-so please keep a look out in your inbox</p>
-<div className="section-receipe">
-  <div className="_content">
-      <h3 className="subhead">Meanwhile, why not try a Buffalo & Ginger Ale?</h3>
-      <div className="row">
-      <Image 
-        src="/images/BT-GingerAle-Recipe.png" 
-        width={98} 
-        height={171} 
-        className="recipe-image" 
-        alt="Buffalo & Ginger Ale Recipe" 
-      />
-      <div className="recipe"><p><strong>50ml</strong> Buffalo Trace Topped with ginger ale Garnish with a wedge of lime</p></div>
-      </div>
-     </div>
-     </div>
+      <p className="text-center mb">We will be drawing a winner on xx/xx/xxxx <br/>
+        Please keep an eye in your email inbox to see if you&#39;re one of our lucky winners!</p>
       </>
     ],
   };
@@ -64,7 +47,7 @@ so please keep a look out in your inbox</p>
     <main className='_main'>
       <div className="_content">
         <h1 className="logo-image bt-logo">
-          <span className="visuallyhidden">Buffalo Trace</span>
+          <span className="visuallyhidden">Friexenet</span>
         </h1>
         <h2 className="headline typography-headline-elevated typeface-secondary uppercase text-center">{title}</h2>
 
