@@ -76,11 +76,14 @@ export default function EntryPage({ siteConfig }) {
   return (
     <main className="_main">
       <div className="_content">
-        <h1 className="logo-image bt-logo">
-          <span className="visuallyhidden">Freixenet</span>
-        </h1>
+        <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
 
-        <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase">
+
+        <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase ">
           Enter your details below
         </h2>
 
@@ -151,7 +154,7 @@ export default function EntryPage({ siteConfig }) {
                     error={errors.phone}
                 />
 
-                <text className="text-center">Tell us where you found us</text>
+                <text className="text-center typography-body-text">Tell us where you found us</text>
                 <Dropdown
                     options={['From Instagram', 'From Facebook', 'Other']}
                     placeholder="Click here"
@@ -209,7 +212,7 @@ export default function EntryPage({ siteConfig }) {
           )}
 
           <button className="submitButton" type="submit">
-            Continue
+            Confirm Details
           </button>
         </form>
       </div>
