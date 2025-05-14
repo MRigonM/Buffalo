@@ -131,7 +131,7 @@ a {
   --font-size-body-reduced: 14px;
 
 
-  --content-width: clamp(320px,100vw,430px);
+  --content-width: clamp(400px,100vw,500px);
   --content-height: max(568px,100vh);
   --padding-block: 35px;
   --padding-inline: 25px;
