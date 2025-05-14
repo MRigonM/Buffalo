@@ -81,8 +81,6 @@ export default function EntryPage({ siteConfig }) {
             <span className="visuallyhidden">Freixenet</span>
           </h1>
         </div>
-
-
         <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase ">
           Enter your details below
         </h2>

@@ -328,11 +328,13 @@ export default function Terms({ siteConfig }) {
   return (
     <main className='_main'>
       <div className="_content">
-        <h1 className="logo-image bt-logo">
-          <span className="visuallyhidden">Buffalo Trace</span>
-        </h1>
-        <h2 className="headline typography-headline typeface-secondary">{title}</h2>
-
+        <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
+          <p className="logo-image bt-x-dp-wt-headline"></p>
+        <h2 className="headline typography-headline typeface-secondary typography-body-text">{title}</h2>
         {body.map((paragraph, i) => (
           <div className="typography-body-reduced text-left" key={i}>{paragraph}</div>
         ))}

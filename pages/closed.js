@@ -3,16 +3,16 @@
 export default function ClosedPage({ siteConfig }) {
 
   const sharedBtGolfCopy = {
-    title: 'Now Closed',
+    title: 'Unfortunately this promotion is now closed',
     body: [
-      <>Unfortunately the promotion is now closed</>,
+      <>Unfortunately this promotion is now closed</>,
     ],
   };
 
   const sharedBtRugbyCopy = {
-    title: 'Now Closed',
+    title: 'Unfortunately this promotion is now closed',
     body: [
-      <>In the meantime, have a scroll on our socials for more Freixenet content.</>,
+      <>In the meantime, have a <br/> scroll on our socials for <br/> more Freixenet content!</>,
     ],
   };
 
@@ -38,14 +38,17 @@ export default function ClosedPage({ siteConfig }) {
     <main className='_main'>
     <div>
     <div className="_content">
-      <h1 className="logo-image bt-logo">
-        <span className="visuallyhidden">Freixenet</span>
-      </h1>
-      <h2 className="headline typography-headline-elevated typeface-secondary uppercase">{title}</h2>
+      <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
+        <p className="logo-image bt-x-dp-wt-headline"></p>
+      <h2 className="headline typography-headline-elevated typeface-secondary text-center">{title}</h2>
 
       <p>
       {body.map((paragraph, i) => (
-        <p className="text-center" key={i}>{paragraph}</p>
+        <p className="text-center typography-body-text" key={i}>{paragraph}</p>
       ))}
       </p>
     </div>

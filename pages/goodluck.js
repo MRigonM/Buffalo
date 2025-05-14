@@ -14,7 +14,7 @@ export default function GoodLuck({ siteConfig }) {
     title: 'Thank you for entering good luck',
     body: [
       <>
-      <p className="text-center mb">We will be drawing a winner on xx/xx/xxxx <br/>
+      <p className="text-center typography-body-text">We will be drawing a winner on xx/xx/xxxx <br/>
         Please keep an eye in your email inbox to see if you&#39;re one of our lucky winners!</p>
       </>
     ],
@@ -46,10 +46,13 @@ export default function GoodLuck({ siteConfig }) {
   return (
     <main className='_main'>
       <div className="_content">
-        <h1 className="logo-image bt-logo">
-          <span className="visuallyhidden">Friexenet</span>
-        </h1>
-        <h2 className="headline typography-headline-elevated typeface-secondary uppercase text-center">{title}</h2>
+        <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
+        <p className="logo-image bt-x-dp-wt-headline"></p>
+        <h2 className="headline typography-headline-elevated typeface-secondary text-center">{title}</h2>
 
         {/* Map through body without wrapping in a <p> */}
         {body.map((paragraph, i) => (

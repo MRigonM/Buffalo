@@ -124,7 +124,7 @@ a {
   --typeface-primary: 'EBGaramond', serif;
   --typeface-secondary: 'Matrix-II',serif;
 
-  --font-size-headline-elevated: 36px;
+  --font-size-headline-elevated: 28px;
   --font-size-headline: 24px;
   --font-size-headline-reduced: 20px;
   --font-size-body: 18px;
@@ -193,6 +193,7 @@ body[class^="theme-bt-rugby-"].page-entry .typography-headline-elevated {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  margin-top: -10px
 }
 
 .logo-wrapper.bt-logo {
@@ -206,7 +207,7 @@ body {
   color: var(--bt-cream);
   font-family: var(--typeface-primary);
   font-size: 18px;
-  line-height: 20px;
+  line-height: 25px;
 }
 body[class^="theme-bt-rugby-"] {
   background-color: var(--bt-rugby-green);
@@ -237,11 +238,8 @@ body.theme-bt-golf-tesco ._container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   /* outline: .5px dashed rgb(255 255 255/40%); */
-
 }
-
 
 .logo-image {
   display: inline-block;
@@ -252,6 +250,9 @@ body.theme-bt-golf-tesco ._container {
   background-image: url('/images/freixenetLogo.png');
 }
 
+.ft-logo {
+  background-image: url('/images/WinDiamond.png');
+}
 .bt-x-dp-wt-logo {
   background-image: url('/images/freixenetLogo.png');
   width: 266px;
@@ -266,20 +267,21 @@ body.theme-bt-golf-on-trade .bt-x-dp-wt-logo {
 }
 
 .bt-x-dp-wt-headline {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/WinDiamond.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
+  margin-bottom: -55px;
 }
 body.theme-bt-golf-supervalu-dunnes .bt-x-dp-wt-headline {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/WinDiamond.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
 }
 
 body.theme-bt-golf-tesco .bt-x-dp-wt-headline {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/WinDiamond.png');
   width: 266px;
   height: 192px;
   margin-top: 25px;
@@ -293,21 +295,17 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-logo {
   margin-top: 25px;
 }
 body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/WinDiamond.png');
   width: 273px;
   height: 242px;
   margin-top: 25px;
 }
-
-
-
 
 :not(.modal) .bt-logo {
   width: 214px;
   height: 46px;
   margin-top: 25px;
 }
-
 
 .modal {
   width: 100vw;
@@ -359,13 +357,10 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
   border: 3px solid var(--bt-black);
 }
 .modal .age-form .error {
-
 }
-
 .modal p a {
   text-decoration: underline;
 }
-
 
 .visuallyhidden {
   position: absolute;
@@ -383,8 +378,6 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
 
   }
 
-
-
   button {
     display: inline-flex;
     justify-content: center;
@@ -401,9 +394,6 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
     font-family: var(--typeface-secondary);
 
   }
-
-
-
 
 .footer-copy {
   font-size: var(--font-size-body-reduced);
@@ -439,14 +429,10 @@ body[class^="theme-bt-rugby-"] .drink-aware {
   background-image: url('/images/drink-aware_2x.png');
 }
 
-
-
-
 .social {
   text-align: center;
   margin-top: 10px
 }
-
 
 .social .social-icons {
     display: flex;
@@ -485,7 +471,8 @@ body.theme-bt-golf-tesco.page-home ._container {
 }
 
 body[class^="theme-bt-rugby-"].page-home ._container {
-  background-image: url('/images/page-bg-home-rugby_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
+  padding-top: 10px;
 }
 
 .page-home ._main {
@@ -508,13 +495,13 @@ body[class^="theme-bt-rugby-"].page-home ._container {
 }
 
 .page-holding ._container {
-  background-image: url('/images/page-bg-holding-on-trade_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 .page-holding.theme-bt-golf-tesco ._container {
-  background-image: url('/images/page-bg-holding-tesco_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 body[class^="theme-bt-rugby-"].page-holding ._container {
-  background-image: url('/images/page-bg-holding-rugby_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 
 .page-holding .headline {
@@ -531,10 +518,10 @@ margin-top: 25px;
 }
 
 .page-closed ._container {
-  background-image: url('/images/page-bg-holding-on-trade_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 body[class^="theme-bt-rugby-"].page-closed ._container {
-  background-image: url('/images/page-bg-closed-rugby_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 
 body.theme-bt-golf-tesco.page-closed ._container {
@@ -654,7 +641,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
 
   width: 10px;
   height: 10px;
- background: var(--bt-cream);
+ background: var(--bt-black);
 
   display: flex;
   align-items: center;
@@ -676,7 +663,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
   display: block;
   width: 4px;
   height: 10px;
-  border: solid var(--bt-black);
+  border: solid var(--bt-cream);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   margin: -5px 0 0 2px;
@@ -707,10 +694,10 @@ body.theme-bt-golf-tesco.page-closed ._container {
 
 
 .page-goodluck ._container {
-  background-image: url('/images/page-bg_goodluck_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 body[class^="theme-bt-rugby-"].page-goodluck ._container {
-  background-image: url('/images/page-bg-entry-rugby_2x.jpg');
+  background-image: url('/images/backgroundImage.png');
 }
 .page-goodluck ._content {
   align-items: flex-start;

@@ -7,14 +7,16 @@ export default function Home({ siteConfig }) {
   const sharedBtGolfCopy = {
     title: [
       <>
-        <h1 className="logo-image bt-x-dp-wt-logo">
-          <span className="visuallyhidden">Buffalo Trace | DP World Tour</span>
-        </h1>
+        <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
       </>
     ],
     body: [
       <>
-        <p className="logo-image ">
+        <p className="logo-image">
           <span className="visuallyhidden">Win two full a trip for two at the Prestigious BMW PGA Championship</span>
         </p>
       </>
@@ -24,14 +26,16 @@ export default function Home({ siteConfig }) {
   const sharedBtRugbyCopy = {
     title: [
       <>
-        <h1 className="logo-image bt-x-dp-wt-logo">
-          <span className="visuallyhidden">Buffalo Trace | Premiership Rugby Official Partner</span>
-        </h1>
+        <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
       </>
     ],
     body: [
       <>
-        <p className="logo-image ">
+        <p className="logo-image">
           <span className="visuallyhidden">Win tickets to the Gallagher Premiership Rugby Final</span>
         </p>
         <p className="subhead-copy">
@@ -93,7 +97,7 @@ export default function Home({ siteConfig }) {
         ))}
       </div>
       <button className='cta' onClick={() => router.push('/entry')}>
-        Enter now
+        Enter Now
       </button>
     </main>
   );

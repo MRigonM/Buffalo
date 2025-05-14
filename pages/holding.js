@@ -15,14 +15,16 @@ export default function HoldingPage({ siteConfig }) {
     <main className='_main'>
     <div>
     <div className="_content">
-      <h1 className="logo-image bt-logo">
-        <span className="visuallyhidden">Buffalo Trace</span>
-      </h1>
-
-      <p className="headline typography-headline typeface-secondary text-center mb-2">
+      <div className="logo-wrapper">
+          <h1 className="logo-image bt-logo">
+            <span className="visuallyhidden">Freixenet</span>
+          </h1>
+        </div>
+      <p className="logo-image bt-x-dp-wt-headline"></p>
+      <p className="headline typography-headline typeface-secondary text-center typography-body-text mb-2">
         Sorry, you’re a little early, this promotion isn’t open just yet
       </p>
-      <p className="text-center">Please come back
+      <p className="text-center typography-body-text">Please come back
         <br/> and enter after
         <br/>xx/xx/xxxx.</p>
     </div>
