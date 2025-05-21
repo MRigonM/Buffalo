@@ -4,6 +4,53 @@ import Link from 'next/link';
 import TextInput from '../components/TextInput';
 import Dropdown from '../components/Dropdown';
 import { useState } from 'react';
+import Header from '../components/Header';
+
+
+const freixenet = {
+  terms: [
+    <>
+      <div className="bt-freixenet-terms">
+        <span className="typography-body-reduced">
+          I accept the competition <Link href="/terms">terms & conditions</Link>
+        </span>
+        <span className="checkmark"></span>
+      </div>
+    </>,
+  ],
+  futureCommunications: [
+    <>
+      <div className="bt-freixenet-terms">
+        <span className="typography-body-reduced">
+          Stay up to date with offers and future competitions?
+        </span>
+        <span className="checkmark"></span>
+      </div>
+    </>,
+  ],
+  confirmButtonText: 'Confirm Details',
+};
+
+const sharedRugbyCopy = {
+  terms: [
+    <>
+      <span className="checkmark"></span>
+      <span className="typography-body-reduced">
+        I agree to the <Link href="/terms" target="_blank">Terms & Conditions</Link> and{' '}
+        <Link href="https://www.sazerac.ie/cookie-notice/" rel="noopener noreferrer" target="_blank">Privacy & Cookie Policy</Link>.
+      </span>
+    </>,
+  ],
+  futureCommunications: [
+    <>
+      <span className="checkmark"></span>
+      <span className="typography-body-reduced">
+        Tick to opt in to future communications from Buffalo Trace
+      </span>
+    </>,
+  ],
+  confirmButtonText: 'Confirm',
+};
 
 export default function EntryPage({ siteConfig }) {
   const { formVersion } = siteConfig;
@@ -73,45 +120,70 @@ export default function EntryPage({ siteConfig }) {
     }
   };
 
+  const COPY_BY_THEME = {
+    'bt-freixenet': freixenet,
+    'bt-golf-tesco': sharedRugbyCopy,
+    'bt-golf-supervalu-dunnes': sharedRugbyCopy,
+    'bt-golf-on-trade': sharedRugbyCopy,
+    'bt-rugby-off-trade': sharedRugbyCopy,
+    'bt-rugby-on-trade': sharedRugbyCopy,
+    'XXXX': {
+        terms: [
+          <>XXXX</>,
+          <>XXXX</>,
+        ],
+        futureCommunications: [
+          <>XXXX</>,
+          <>XXXX</>,
+        ],
+      },
+  };
+  
+  const theme = siteConfig.theme || '';
+  const { terms, futureCommunications, confirmButtonText = "Confirm" } = COPY_BY_THEME[theme] || { terms: [], futureCommunications: [] };
+
   return (
     <main className="_main">
       <div className="_content">
-        <div className="logo-wrapper">
-          <h1 className="logo-image bt-logo">
-            <span className="visuallyhidden">Freixenet</span>
-          </h1>
-        </div>
-        <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase ">
+        <Header theme={theme} />
+
+        <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase">
           Enter your details below
         </h2>
 
+        <video
+          className="bt-freixenet-entry-video"
+          src="/videos/freixenet/bg_animation.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/freixenet/diamond-background.png"
+          style={{ width: '100%' }}
+        />
         <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
+          
           <TextInput
             label="First Name*"
-            placeholder="Full Name*"
+            placeholder="First Name*"
             name="firstName"
             register={register}
             required
             error={errors.firstName}
           />
+
           <TextInput
-            label="Email Address*"
-            placeholder="Email Address*"
-            name="email"
+            label="Last Name*"
+            placeholder="Last Name*"
+            name="lastName"
             register={register}
             required
-            validationRules={{
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Invalid email format",
-              },
-            }}
-            error={errors.email}
+            error={errors.lastName}
           />
 
           <TextInput
-            label="Confirm Email Address*"
-            placeholder="Confirm Email Address*"
+            label="Email Address*"
+            placeholder="Email Address*"
             name="email"
             register={register}
             required
@@ -135,39 +207,110 @@ export default function EntryPage({ siteConfig }) {
             />
           )}
 
-          {formVersion === '4' && (
-              <>
-                <TextInput
-                    label="Phone Number*"
-                    placeholder="Phone Number*"
-                    name="phone"
-                    register={register}
-                    required
-                    validationRules={{
-                      pattern: {
-                        value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
-                        message: "Invalid phone number",
-                      },
-                    }}
-                    error={errors.phone}
-                />
-
-                <text className="text-center typography-body-text">Tell us where you found us</text>
-                <Dropdown
-                    options={['From Instagram', 'From Facebook', 'Other']}
-                    placeholder="Click here"
-                    name="source"
-                    register={register}
-                    required
-                    error={errors.source}
-                />
-
-              </>
+          {formVersion === '3' && (
+            <>
+              <TextInput
+                label="Unique Code*"
+                placeholder="Unique Code*"
+                name="uniqueCode"
+                register={register}
+                required
+                error={errors.uniqueCode}
+              />
+              <Dropdown
+                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                placeholder="Where did you purchase from?"
+                name="source"
+                register={register}
+                required
+                error={errors.source}
+              />
+            </>
           )}
 
-          <p className="typography-body-reduced text-center">
-            All fields marked * are mandatory
-          </p>
+          {formVersion === '4' && (
+            <>
+              <TextInput
+                label="Phone Number*"
+                placeholder="Phone Number*"
+                name="phone"
+                register={register}
+                required
+                validationRules={{
+                  pattern: {
+                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                    message: "Invalid phone number",
+                  },
+                }}
+                error={errors.phone}
+              />
+              <TextInput
+                label="Unique Code*"
+                placeholder="Unique Code*"
+                name="uniqueCode"
+                register={register}
+                required
+                error={errors.uniqueCode}
+              />
+              <Dropdown
+                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                placeholder="Where did you purchase from?"
+                name="source"
+                register={register}
+                required
+                error={errors.source}
+              />
+              
+            </>
+          )}
+
+          {formVersion === '5' && (
+            <>
+              <TextInput
+                label="Confirm Email Address*"
+                placeholder="Confirm Email Address*"
+                name="email"
+                register={register}
+                required
+                validationRules={{
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "Invalid email format",
+                  },
+                }}
+                error={errors.email}
+              />
+              <TextInput
+                label="Phone Number*"
+                placeholder="Phone Number*"
+                name="phone"
+                register={register}
+                required
+                validationRules={{
+                  pattern: {
+                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                    message: "Invalid phone number",
+                  },
+                }}
+                error={errors.phone}
+              />
+              <text className="text-center typography-body-text color-black">Tell us where you found us</text>
+              <Dropdown
+                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                placeholder="Where did you purchase from?"
+                name="source"
+                register={register}
+                required
+                error={errors.source}
+              />
+            </>
+          )}
+
+          {theme !== 'bt-freixenet' && (
+            <p className="typography-body-reduced text-center">
+              All fields marked * are mandatory
+            </p>
+          )}
 
           <div>
             <label className="custom-checkbox">
@@ -177,11 +320,7 @@ export default function EntryPage({ siteConfig }) {
                 {...register('agreeTerms', { required: true })}
                 defaultChecked={false}
               />
-              <span className="checkmark"></span>
-              <span className="typography-body-reduced">
-                I agree to the <Link href="/terms">Terms & Conditions</Link> and{' '}
-                <Link href="https://www.sazerac.ie/cookie-notice/" rel="noopener noreferrer" target="_blank">Privacy & Cookie Policy</Link>.
-              </span>
+              {terms}
             </label>
             {errors.agreeTerms && (
               <span className="typography-body-reduced error">
@@ -196,10 +335,7 @@ export default function EntryPage({ siteConfig }) {
                 {...register('optIn')}
                 defaultChecked={false}
               />
-              <span className="checkmark"></span>
-              <span className="typography-body-reduced">
-                Tick to opt in to future communications from Buffalo Trace
-              </span>
+              {futureCommunications}
             </label>
           </div>
 
@@ -210,7 +346,7 @@ export default function EntryPage({ siteConfig }) {
           )}
 
           <button className="submitButton" type="submit">
-            Confirm Details
+            {confirmButtonText}
           </button>
         </form>
       </div>

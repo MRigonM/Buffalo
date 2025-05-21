@@ -59,12 +59,12 @@ export default function AgeGate({ onAgeConfirmed }) {
   };
 
   return (
-    <div className="modal">
+    <div className="age-gate">
       <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <div className="age-form">
             <div className="typeface-secondary">
-              <p>You must be <br/> over 18 to <br/> enter this site </p>
+              <h1>You must be <br/> over 18 to <br/> enter this site</h1>
             </div>
 
             <div className="input-group">
@@ -92,6 +92,7 @@ export default function AgeGate({ onAgeConfirmed }) {
               <input
                 ref={yearRef}
                 name="year"
+                className="age-gate-year"
                 placeholder="YYYY"
                 maxLength="4"
                 value={dob.year}
@@ -103,8 +104,10 @@ export default function AgeGate({ onAgeConfirmed }) {
             </div>
             {error && <p className="error">{error}</p>}
 
-            <p className="typography-body-reduced">Please enter <br/> your date <br/> birth</p>
-            <button type="submit">Enter</button>
+            <p className="typography-body-reduced-age-gate">
+              Please enter <br /> your date <br/> of birth
+            </p>
+            <button type="submit" className="submitAge">Enter</button>
           </div>
         </form>
       </div>

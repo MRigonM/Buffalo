@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 
     const handleRouteChange = (url) => {
       const config = sites[window.location.hostname] || sites.default;
-    
+
       // Remove all existing page-* and theme-* classes
       document.body.classList.remove(
         ...Array.from(document.body.classList).filter(cls =>
@@ -98,7 +98,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Freixenet</title>
+        <title>Buffalo Trace</title>
       </Head>
 
       <div className="_container">
@@ -133,7 +133,7 @@ function MyApp({ Component, pageProps }) {
       </div>
 
       {/* Overlay AgeGate on top of everything, including /terms */}
-      {!ageConfirmed && (
+      {!ageConfirmed && siteConfig.theme !== 'bt-freixenet' && (
         <AgeGate
           onAgeConfirmed={() => {
             localStorage.setItem('ageConfirmed', 'true');

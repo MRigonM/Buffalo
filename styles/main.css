@@ -58,8 +58,8 @@ select {
   justify-content: space-between;
   align-items: center;
   position: relative;
-
-
+ 
+ 
 }
 .dropdown select {
   padding-right: 50px;
@@ -74,8 +74,7 @@ select {
 
 button {
   background: none;
-  border-radius: 8px;
-  border: none;
+  border: 0;
   color: inherit;
   cursor: pointer;
   font: inherit;
@@ -116,22 +115,24 @@ a {
 
 :root {
   --bt-brown: #BE863C;
-  --bt-cream:#F5FFFA;
+  --bt-cream:#F7F2D7;
   --bt-green:#1B3C33;
-  --bt-rugby-green: #FAF0E6;
-  --bt-black: #000000;
+  --bt-rugby-green: #1C453D;
+  --bt-freixenet: linen;
+  --bt-gold: #D5C296;
+  --bt-orange: #AD441D;
 
   --typeface-primary: 'EBGaramond', serif;
   --typeface-secondary: 'Matrix-II',serif;
 
-  --font-size-headline-elevated: 28px;
+  --font-size-headline-elevated: 36px;
   --font-size-headline: 24px;
   --font-size-headline-reduced: 20px;
   --font-size-body: 18px;
   --font-size-body-reduced: 14px;
 
 
-  --content-width: clamp(400px,100vw,500px);
+  --content-width: clamp(320px,100vw,430px);
   --content-height: max(568px,100vh);
   --padding-block: 35px;
   --padding-inline: 25px;
@@ -146,34 +147,34 @@ a {
   font-weight: 500;
 }
 
-.typography-headline-elevated {
+.typography-headline-elevated { 
   font-size: var(--font-size-headline-elevated);
-  color: black;
   line-height: 40px;
 }
-body[class^="theme-bt-rugby-"].page-entry .typography-headline-elevated {
+body[class^="theme-bt-rugby-"].page-entry .typography-headline-elevated { 
   font-size: 20px;
   line-height: 1;
+}
+body[class^="theme-bt-freixenet"].page-entry .typography-headline-elevated { 
+  font-size: 20px;
+  line-height: 1;
+  color: black;
+  text-transform: none;
 }
 .typography-headline {
   font-size: var(--font-size-headline);
   line-height: 1;
  }
 .typography-headline-reduced { }
-.typography-body {
+.typography-body { 
   font-size: 18px;
   line-height: 20px;
 }
-.typography-body-reduced {
-  color : black;
+.typography-body-reduced { 
   font-size: var(--font-size-body-reduced);
   line-height: 16px;
+  color: black;
  }
-
-.typography-body-text {
-  color : black;
-  font-size: 22px;
-}
 
 
 .text-left {
@@ -186,36 +187,25 @@ body[class^="theme-bt-rugby-"].page-entry .typography-headline-elevated {
   text-transform: uppercase;
 }
 
-.logo-wrapper {
-  background-color: #000;
-  padding: 1rem 0;
-  text-align: center;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  margin-top: -10px
-}
-
-.logo-wrapper.bt-logo {
-  margin: 0 auto;
-  display: inline-block;
-}
-
 
 body {
   background-color: var(--bt-green);
   color: var(--bt-cream);
   font-family: var(--typeface-primary);
   font-size: 18px;
-  line-height: 25px;
+  line-height: 20px;
 }
 body[class^="theme-bt-rugby-"] {
   background-color: var(--bt-rugby-green);
+}
+body[class^="theme-bt-freixenet"] {
+  background-color: var(--bt-freixenet);
 }
 ._container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: var(--content-height);
 
   background-size: var(--content-width) auto;
@@ -233,55 +223,62 @@ body.theme-bt-golf-tesco ._container {
 ._content {
   padding-inline: var(--padding-inline);
   width: var(--content-width);
-
+ 
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+
   align-items: center;
+  
   /* outline: .5px dashed rgb(255 255 255/40%); */
+  
 }
+
 
 .logo-image {
   display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
 }
 .bt-logo {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/bt-logo_2x.png');
 }
 
-.ft-logo {
-  background-image: url('/images/WinDiamond.png');
+body.theme-bt-freixenet .bt-logo {
+  background-image: url('/images/freixenet/header.png');
+  width: 180px;
+  height: 67px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
+
 .bt-x-dp-wt-logo {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/bt-x-dp-wt-logo_2x.png');
   width: 266px;
   height: 34px;
   margin-top: 20px;
 }
 body.theme-bt-golf-supervalu-dunnes .bt-x-dp-wt-logo,
 body.theme-bt-golf-on-trade .bt-x-dp-wt-logo {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/bt-x-dp-wt-logo-amgen_2x.png');
   width: 265px;
   height: 34px;
 }
 
 .bt-x-dp-wt-headline {
-  background-image: url('/images/WinDiamond.png');
+  background-image: url('/images/bt-x-dp-wt-kclub-headline_2x.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
-  margin-bottom: -55px;
 }
 body.theme-bt-golf-supervalu-dunnes .bt-x-dp-wt-headline {
-  background-image: url('/images/WinDiamond.png');
+  background-image: url('/images/bt-x-dp-wt-kclub-vip-headline_2x.png');
   width: 352px;
   height: 196px;
   margin-top: 25px;
 }
 
 body.theme-bt-golf-tesco .bt-x-dp-wt-headline {
-  background-image: url('/images/WinDiamond.png');
+  background-image: url('/images/bt-x-dp-wt-headline_2x.png');
   width: 266px;
   height: 192px;
   margin-top: 25px;
@@ -289,23 +286,27 @@ body.theme-bt-golf-tesco .bt-x-dp-wt-headline {
 
 body[class^="theme-bt-rugby-"] .bt-logo,
 body[class^="theme-bt-rugby-"] .bt-x-dp-wt-logo {
-  background-image: url('/images/freixenetLogo.png');
+  background-image: url('/images/bt-x-premiership-rugby.png');
   width: 222px;
   height: 104px;
   margin-top: 25px;
 }
 body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
-  background-image: url('/images/WinDiamond.png');
+  background-image: url('/images/bt-x-rugby-headline_2x.png');
   width: 273px;
   height: 242px;
   margin-top: 25px;
 }
+
+
+
 
 :not(.modal) .bt-logo {
   width: 214px;
   height: 46px;
   margin-top: 25px;
 }
+
 
 .modal {
   width: 100vw;
@@ -345,7 +346,7 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
   display: flex;
   justify-content: center;
   gap: 25px;
-
+ 
 }
 .modal .age-form input {
   width: 64px;
@@ -354,14 +355,17 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
   text-align: center;
   font-size: var(--font-size-headline-reduced);
   font-family: var(--typeface-secondary);
-  border: 3px solid var(--bt-black);
+  border: 3px solid var(--bt-orange);
 }
 .modal .age-form .error {
+
 }
+
 .modal p a {
   text-decoration: underline;
 }
 
+  
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -378,6 +382,8 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
 
   }
 
+
+  
   button {
     display: inline-flex;
     justify-content: center;
@@ -387,17 +393,54 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
     height: 41px;
     min-width: 123px;
     padding: 8px 20px;
-    background-color: var(--bt-black);
-    color: var(--bt-cream);
+    background-color: var(--bt-cream);
+    color: var(--bt-green);
     font-size: 18px;
     line-height: 1;
     font-family: var(--typeface-secondary);
 
   }
 
+
+body[class^="theme-bt-freixenet"] .footer {
+  background-color: black;
+  width: 100%;
+}
+
+body[class^="theme-bt-freixenet"] .footer-copy { 
+  justify-content: start;
+  margin-top: 15px;
+  color: white;
+}
+
+body[class^="theme-bt-freixenet"] .footer-links, body[class^="theme-bt-freixenet"] .footer-social-text {
+  margin-bottom: 10px;  
+}
+
+body[class^="theme-bt-freixenet"] .footer-links a, .footer-links span {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+body[class^="theme-bt-freixenet"] .footer-social-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+body[class^="theme-bt-freixenet"] .footer-social-text a {
+  display: flex;
+  align-items: center;
+}
+
+body[class^="theme-bt-freixenet"] .instagram-icon {
+  margin-right: 5px;
+}
+
 .footer-copy {
   font-size: var(--font-size-body-reduced);
-
+  
   column-gap: 20px;
   padding-bottom: 10px;
   width: 100%;
@@ -406,7 +449,7 @@ body[class^="theme-bt-rugby-"] .bt-x-dp-wt-headline {
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-
+  
 }
 
 body[class^="theme-bt-golf-"] .footer-copy {
@@ -429,10 +472,14 @@ body[class^="theme-bt-rugby-"] .drink-aware {
   background-image: url('/images/drink-aware_2x.png');
 }
 
+
+
+
 .social {
   text-align: center;
   margin-top: 10px
 }
+
 
 .social .social-icons {
     display: flex;
@@ -440,7 +487,7 @@ body[class^="theme-bt-rugby-"] .drink-aware {
     gap: min(9vw,50px);
     margin-block: 20px;
   }
-
+  
   .social .icon {
     display: inline-block;
     width: 38px;
@@ -450,8 +497,8 @@ body[class^="theme-bt-rugby-"] .drink-aware {
     background-color:  var(--bt-brown);
     border-radius: 50%;
   }
-
-
+  
+ 
   .social .icon.instagram {
     background-image: url('/images/social-icon-ig_2x.png');
   }
@@ -462,6 +509,14 @@ body[class^="theme-bt-rugby-"] .drink-aware {
     background-image: url('/images/social-icon-x_2x.png');
   }
 
+
+
+
+
+
+
+
+
 .page-home ._container {
   background-image: url('/images/page-bg-home-on-trade_2x.jpg');
 }
@@ -471,9 +526,16 @@ body.theme-bt-golf-tesco.page-home ._container {
 }
 
 body[class^="theme-bt-rugby-"].page-home ._container {
-  background-image: url('/images/backgroundImage.png');
-  padding-top: 10px;
+  background-image: url('/images/page-bg-home-rugby_2x.jpg');
 }
+
+body.theme-bt-freixenet.page-home ._container {
+  background-image: none;
+  background-color: black;
+}
+
+
+
 
 .page-home ._main {
   display: flex;
@@ -485,9 +547,9 @@ body[class^="theme-bt-rugby-"].page-home ._container {
 
 
 .page-home .cta {
-
+ 
   margin-bottom: 15px;
-
+  
 }
 
 .page-home .social {
@@ -495,22 +557,29 @@ body[class^="theme-bt-rugby-"].page-home ._container {
 }
 
 .page-holding ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-holding-on-trade_2x.jpg');
 }
 .page-holding.theme-bt-golf-tesco ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-holding-tesco_2x.jpg');
 }
 body[class^="theme-bt-rugby-"].page-holding ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-holding-rugby_2x.jpg');
 }
+
+body[class^="theme-bt-freixenet"].page-holding ._container {
+  background-image: none;
+}
+
+
+
 
 .page-holding .headline {
 margin-top: 25px;
-
+ 
 }
 .page-holding .date {
-
-  background-color: var(--bt-black);
+ 
+  background-color: var(--bt-orange);
   line-height: 33px;
   display: inline-block;
   margin-top: 20px;
@@ -518,15 +587,23 @@ margin-top: 25px;
 }
 
 .page-closed ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-holding-on-trade_2x.jpg');
+}
+body[class^="theme-bt-freixenet"].page-closed ._container {
+  background-image: none;
 }
 body[class^="theme-bt-rugby-"].page-closed ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-closed-rugby_2x.jpg');
 }
 
 body.theme-bt-golf-tesco.page-closed ._container {
   background-image: url('/images/page-bg-holding-tesco_2x.jpg');
 }
+
+body[class^="theme-bt-freixenet"] ._content {
+  color: black
+}
+
 
 .page-closed .headline {
   margin-top: 15px;
@@ -544,7 +621,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
   margin-top: 15px;
 }
 
-.page-terms {
+.page-terms .footer {
   margin-top: 50px;
 }
 
@@ -575,14 +652,21 @@ body.theme-bt-golf-tesco.page-closed ._container {
   text-decoration: underline;
 }
 
+
+
+
 .page-entry ._container {
   background-image: url('/images/page-bg-entry_2x.jpg');
 }
 [class^="theme-bt-rugby-"].page-entry  ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-entry-rugby_2x.jpg');
 }
 .page-entry .social {
   display: none;
+}
+
+[class^="theme-bt-freixenet"].page-entry ._container {
+  background-image: none;
 }
 
 .page-entry .headline {
@@ -600,9 +684,7 @@ body.theme-bt-golf-tesco.page-closed ._container {
 .page-entry .entry-form .dropdown,
 .page-entry .entry-form .dropdown select {
   width: 100%;
-  background: var(--bt-black);
-  border-radius: 8px;
-  border: none;
+  background: var(--bt-orange);
 }
 .page-entry .entry-form .textinput input {
   padding-inline: 10px;
@@ -628,9 +710,9 @@ body.theme-bt-golf-tesco.page-closed ._container {
 
 .custom-checkbox {
   display: flex;
-
+ 
   cursor: pointer;
-
+ 
 }
 .custom-checkbox ~ * {
   margin-top: 5px;
@@ -638,11 +720,11 @@ body.theme-bt-golf-tesco.page-closed ._container {
 
 /* Checkmark box */
 .custom-checkbox .checkmark {
-
+ 
   width: 10px;
   height: 10px;
- background: var(--bt-black);
-
+ background: var(--bt-cream);
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -657,31 +739,23 @@ body.theme-bt-golf-tesco.page-closed ._container {
 
 
 .custom-checkbox .checkmark::before {
-
-
   content: '';
   display: block;
   width: 4px;
   height: 10px;
-  border: solid var(--bt-cream);
+  border: solid white;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   margin: -5px 0 0 2px;
- opacity: 0;
- flex-shrink: 0;
-
-}
-
-
-
-
-
-.custom-checkbox input:checked + .checkmark {
-
+  opacity: 0;
+  flex-shrink: 0;
 }
 
 .custom-checkbox input:checked + .checkmark::before {
+  opacity: 1;
+}
 
+.custom-checkbox input:checked ~ .bt-freixenet-terms .checkmark::before {
   opacity: 1;
 }
 
@@ -689,16 +763,20 @@ body.theme-bt-golf-tesco.page-closed ._container {
   text-decoration: underline;
 }
 
-
-
-
-
 .page-goodluck ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg_goodluck_2x.jpg');
 }
 body[class^="theme-bt-rugby-"].page-goodluck ._container {
-  background-image: url('/images/backgroundImage.png');
+  background-image: url('/images/page-bg-entry-rugby_2x.jpg');
 }
+body[class^="theme-bt-freixenet"].page-goodluck ._container {
+  background-image: none;
+}
+
+body[class^="theme-bt-freixenet"].page-goodluck ._content {
+  align-items: center;
+}
+
 .page-goodluck ._content {
   align-items: flex-start;
 }
@@ -734,15 +812,15 @@ body[class^="theme-bt-rugby-"].page-goodluck ._container {
 
 
 body[class^="theme-bt-rugby-"].page-goodluck .section-receipe {
-
+  
   width: 100%;
-  position: relative;
+  position: absolute;
   left: 0;
   margin-top: 20px
-
+ 
 }
 body[class^="theme-bt-rugby-"].page-goodluck .section-receipe ._content {
-  background-color: var(--bt-black);
+  background-color: var(--bt-orange);
   padding-block: 20px;
 
 }
@@ -759,57 +837,199 @@ body[class^="theme-bt-rugby-"].page-goodluck .section-receipe .row {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-
-
+ 
+   
 }
 
-.page-goodluck ._content {
+.page-goodluck .footer ._content {
   align-items: center;
-
+  
 }
 
-.footer {
-  background: #000;
-  color: #fff;
-  padding: 20px 10px;
-  font-size: 14px;
-  margin-top: auto;
+body[class^="theme-bt-freixenet"].page-entry .entry-form .textinput input,
+body[class^="theme-bt-freixenet"].page-entry .entry-form .dropdown,
+body[class^="theme-bt-freixenet"].page-entry .entry-form .dropdown select {
+  background: black;
 }
 
-.footer-row {
+body[class^="theme-bt-freixenet"] .error-message {
+  color: black;
+}
+
+body[class^="theme-bt-freixenet"].page-entry .entry-form .textinput input,
+body[class^="theme-bt-freixenet"].page-entry .entry-form .dropdown {
+  border: 2px solid var(--bt-gold);
+  border-radius: 10px;
+}
+
+
+body[class^="theme-bt-freixenet"].page-entry .entry-form {
+  color: white;
+}
+
+body[class^="theme-bt-freixenet"] .submitButton {
+  background-color: black;
+  border: 2px solid var(--bt-gold);
+  border-radius: 10px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.bt-freixenet-terms {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+  width: 100%;
+  color: black;
 }
 
-.footer-links a,
-.footer-links span {
-  color: #fff;
-  margin: 0 5px;
-  text-decoration: none;
+.bt-freixenet-terms .checkmark {
+  background: black;
 }
 
-.footer-social-text a {
-  color: #fff;
-  text-decoration: none;
+.bt-freixenet-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  background-color: black;
 }
 
-.footer-responsibility {
-  color: #fff;
+.color-black {
+  color: black;
 }
 
-.instagram-icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-image: url('/public/images/instagram.svg'); /* Replace with actual path */
+.bt-freixenet-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+body[class^="theme-bt-freixenet"] .age-content {
+  background-image: url('/images/freixenet/age-background-confirm.png');
+  background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 5px;
-  vertical-align: middle;
+  background-position: center;
+  position: relative;
+  height: 81vh;
+  width: 100%;
+  max-width: 430px; /* or whatever your design max is */
+  margin: 0 auto; /* center horizontally */
+  padding: 1rem; /* optional for spacing inside */
 }
 
-.mb-2 {
-  margin-bottom: 2rem;
+body[class^="theme-bt-freixenet"] .age-form {
+  color: black;
+  margin-top: 50px;
+}
+
+body[class^="theme-bt-freixenet"] .age-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.freixenet-age-diamond {
+  position: absolute;
+}
+
+body[class^="theme-bt-freixenet"] .age-content .typeface-secondary h1 {
+  text-align: center;
+  font-size: 30px;
+  line-height: 24px;
+}
+
+body[class^="theme-bt-freixenet"] .age-content .input-group .age-gate-year {
+  width: 42px;
+}
+
+body[class^="theme-bt-freixenet"] .age-content .input-group input {
+  border: 1.5px solid black;
+  width: 30px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+body[class^="theme-bt-freixenet"] .age-content .input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+body[class^="theme-bt-freixenet"] .typography-body-reduced-age-gate {
+  text-align: center;
+  font-size: 18px;
+}
+
+
+body[class^="theme-bt-freixenet"] .submitAge {
+  background: black;
+  border: 2px solid var(--bt-gold);
+  border-radius: 10px;
+  color: white;
+}
+
+.age-gate-year {
+  width: 42px;
+}
+
+.bt-freixenet-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 70vh;
+  width: 100%;
+}
+
+.bt-freixenet-home-video, .bt-freixenet-entry-video {
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.bt-freixenet-home-video, .bt-freixenet-entry-video, .bt-freixenet-entry-video-index {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.bt-freixenet-closed-header {
+  font-size: 30px;
+}
+
+.bt-freixenet-holding-header {
+  font-size: 30px;
+}
+
+body[class^="theme-bt-freixenet"].page-closed .headline {
+  text-align: center;
+  text-transform: none;
+}
+
+.bt-freixenet-closed-socials {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.page-goodluck-last-p {
+  margin-top: 20px;;
+}
+
+@media (max-width: 480px) {
+  body[class^="theme-bt-freixenet"] .age-content {
+    height: 70vh;
+    padding: 1.5rem;
+  }
 }
