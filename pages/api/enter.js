@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   const codeListName = codeListMap[normalizedTheme];
 
   try {
-    // Unique code validation for form version 3 and 4
+    const recentEntryCheck = await query(
       `SELECT submitted_at FROM submissions WHERE email = $1 ORDER BY submitted_at DESC LIMIT 1`,
       [email]
     );
