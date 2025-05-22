@@ -17,11 +17,7 @@ export default async function handler(req, res) {
     marketing_opt_in
   } = req.body;
 
-  if (!theme) {
-    return res.status(400).json({ message: 'Missing theme in request.' });
-  }
-
-  if (!first_name || !last_name || !email) {
+  if (!theme || !first_name || !last_name || !email) {
     return res.status(400).json({ message: 'Missing required fields.' });
   }
 
@@ -31,16 +27,25 @@ export default async function handler(req, res) {
 
   try {
     // Unique code validation for form version 3 and 4
+      `SELECT submitted_at FROM submissions WHERE email = $1 ORDER BY submitted_at DESC LIMIT 1`,
+      [email]
+    );
+
+    if (recentEntryCheck.rows.length > 0) {
+      const lastEntryDate = new Date(recentEntryCheck.rows[0].submitted_at);
+      const now = new Date();
+      const oneWeekAgo = new Date(now.setDate(now.getDate() - 7));
+
+      if (lastEntryDate > oneWeekAgo) {
+        return res.status(409).json({ message: 'You can only enter once per week.' });
+      }
+    }
+
     if (['3', '4'].includes(version) && codeListName) {
       const allowedCodes = await loadCodesFromCSV(codeListName);
 
       if (!cleanedCode) {
         return res.status(400).json({ message: 'Unique Code is required.' });
-      }
-
-      if (!allowedCodes || !Array.isArray(allowedCodes)) {
-        console.warn(`[API] Code list not found or invalid: ${codeListName}`);
-        return res.status(400).json({ message: 'Code list not found for this campaign.' });
       }
 
       if (!allowedCodes.includes(cleanedCode)) {
@@ -69,8 +74,8 @@ export default async function handler(req, res) {
     await query(
       `INSERT INTO submissions (
         first_name, last_name, email, phone, source,
-        unique_code, marketing_opt_in
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+        unique_code, marketing_opt_in, submitted_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW())`,
       [
         first_name,
         last_name,

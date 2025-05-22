@@ -893,6 +893,7 @@ body[class^="theme-bt-freixenet"] .submitButton {
   justify-content: center;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  margin-top: -25px;
   width: 100vw;
   background-color: black;
 }
@@ -982,7 +983,7 @@ body[class^="theme-bt-freixenet"] .submitAge {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 70vh;
+  height: 75vh;
   width: 100%;
 }
 
@@ -1029,7 +1030,7 @@ body[class^="theme-bt-freixenet"].page-closed .headline {
 
 @media (max-width: 480px) {
   body[class^="theme-bt-freixenet"] .age-content {
-    height: 74vh;
+    height: 77vh;
     padding: 1.5rem;
   }
 }

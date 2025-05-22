@@ -76,7 +76,7 @@ export default function EntryPage({ siteConfig }) {
     const payload = {
       first_name: data.firstName,
       last_name: data.lastName,
-      email: data.email,
+      email: data.email.toLowerCase(),
       source: data.source || null,
       unique_code: data.uniqueCode || null,
       marketing_opt_in: data.optIn ? 'YES' : 'NO',
@@ -96,7 +96,7 @@ export default function EntryPage({ siteConfig }) {
 
       if (response.ok) {
         reset();
-        router.push('/goodluck');
+        await router.push('/goodluck');
       } else {
         const msg = result.message?.toLowerCase() || '';
 
@@ -105,6 +105,8 @@ export default function EntryPage({ siteConfig }) {
         } else if (msg.includes('last name')) {
           setError('lastName', { type: 'server', message: result.message });
         } else if (msg.includes('email')) {
+          setError('email', { type: 'server', message: result.message });
+        } else if (msg.includes('already been registered')|| msg.includes('once per week')) {
           setError('email', { type: 'server', message: result.message });
         } else if (msg.includes('unique code')) {
           setError('uniqueCode', { type: 'server', message: result.message });
@@ -138,7 +140,7 @@ export default function EntryPage({ siteConfig }) {
         ],
       },
   };
-  
+
   const theme = siteConfig.theme || '';
   const { terms, futureCommunications, confirmButtonText = "Confirm" } = COPY_BY_THEME[theme] || { terms: [], futureCommunications: [] };
 
@@ -162,7 +164,7 @@ export default function EntryPage({ siteConfig }) {
           style={{ width: '100%' }}
         />
         <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
-          
+
           <TextInput
             label="First Name*"
             placeholder="First Name*"
@@ -260,7 +262,6 @@ export default function EntryPage({ siteConfig }) {
                 required
                 error={errors.source}
               />
-              
             </>
           )}
 
@@ -345,7 +346,8 @@ export default function EntryPage({ siteConfig }) {
             </p>
           )}
 
-          <button className="submitButton" type="submit">
+          <button className="submitButton"
+                  type="submit">
             {confirmButtonText}
           </button>
         </form>

@@ -98,7 +98,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Buffalo Trace</title>
+        <title>Freixenet</title>
       </Head>
 
       <div className="_container">
