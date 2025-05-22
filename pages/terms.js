@@ -1227,7 +1227,7 @@ export default function Terms({siteConfig}) {
                     loop
                     muted
                     playsInline
-                    poster="/images/freixenet/diamond-background.png"
+                    poster="/images/freixenet/age-background-confirm.png"
                     style={{width: '100%'}}
                 />
             </>

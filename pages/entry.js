@@ -158,7 +158,7 @@ export default function EntryPage({ siteConfig }) {
           loop
           muted
           playsInline
-          poster="/images/freixenet/diamond-background.png"
+          poster="/images/freixenet/age-background-confirm.png"
           style={{ width: '100%' }}
         />
         <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
@@ -294,7 +294,7 @@ export default function EntryPage({ siteConfig }) {
                 }}
                 error={errors.phone}
               />
-              <text className="text-center typography-body-text color-black">Tell us where you found us</text>
+              <p className="text-center typography-body-text color-black">Tell us where you found us</p>
               <Dropdown
                 options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
                 placeholder="Where did you purchase from?"

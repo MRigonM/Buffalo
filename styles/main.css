@@ -1029,7 +1029,7 @@ body[class^="theme-bt-freixenet"].page-closed .headline {
 
 @media (max-width: 480px) {
   body[class^="theme-bt-freixenet"] .age-content {
-    height: 70vh;
+    height: 74vh;
     padding: 1.5rem;
   }
 }

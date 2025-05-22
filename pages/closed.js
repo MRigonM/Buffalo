@@ -29,9 +29,7 @@ export default function ClosedPage({ siteConfig }) {
     title: <><span className="text-center bt-freixenet-closed-header">Unfortunately <br/> this promotion <br/> is now closed</span></>,
     body: [
       <>
-        <p>
           In the meantime, have a <br/> scroll on our socials for <br/> more Freixenet content!
-        </p>
 
         <div className="bt-freixenet-closed-socials">
           <Image 
@@ -60,7 +58,7 @@ export default function ClosedPage({ siteConfig }) {
           loop
           muted
           playsInline
-          poster="/images/freixenet/diamond-background.png"
+          poster="/images/freixenet/age-background-confirm.png"
           style={{ width: '100%' }}
         />
       </>
@@ -77,8 +75,7 @@ export default function ClosedPage({ siteConfig }) {
     'XXX': {
       title: '',
       body: [
-        <></>,
-        <></>,
+        <></>
       ],
       extraContent: [
         <></>
@@ -94,14 +91,11 @@ export default function ClosedPage({ siteConfig }) {
       <div>
         <div className="_content">
           <Header theme={siteConfig.theme} />
-          
           {extraContent}
           <h2 className="headline typography-headline-elevated typeface-secondary uppercase">{title}</h2>
-          <p>
             {body.map((paragraph, i) => (
               <p className="text-center" key={i}>{paragraph}</p>
             ))}
-          </p>
         </div>
       </div>
     </main>

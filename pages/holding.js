@@ -16,10 +16,8 @@ export default function HoldingPage({ siteConfig }) {
   const sharedBtFreixenetCopy = {
     title: <><span className="text-center bt-freixenet-holding-header">Sorry, you’re a little <br/> early, this promotion <br/> isn’t open just yet</span></>,
     body: [
-      <>
-        <p>
+        <>
           Please come back <br/> and enter after <br/> xx/xx/xxxx.
-        </p>
         </>,
     ],
     extraContent: [
@@ -31,7 +29,7 @@ export default function HoldingPage({ siteConfig }) {
           loop
           muted
           playsInline
-          poster="/images/freixenet/diamond-background.png"
+          poster="/images/freixenet/age-background-confirm.png"
           style={{ width: '100%' }}
         />
       </>
@@ -57,11 +55,9 @@ export default function HoldingPage({ siteConfig }) {
             <Header theme={siteConfig.theme}/>
             {extraContent}
             <h2 className="headline typography-headline-elevated typeface-secondary margin-bottom">{title}</h2>
-            <p>
             {body.map((paragraph, i) => (
               <p className="text-center" key={i}>{paragraph}</p>
             ))}
-          </p>
           </div>
         </div>
       </main>

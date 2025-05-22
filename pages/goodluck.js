@@ -67,7 +67,7 @@ so please keep a look out in your inbox</p>
           loop
           muted
           playsInline
-          poster="/images/freixenet/diamond-background.png"
+          poster="/images/freixenet/age-background-confirm.png"
           style={{ width: '100%' }}
         />
       </>,
