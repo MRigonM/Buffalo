@@ -47,7 +47,7 @@ export default function EnterNowPage() {
           loop
           muted
           playsInline
-          style={{ width: "100%", height: "auto" }}
+          style={{ width: "100%", height: "74vh" }}
         />
 
         <button
