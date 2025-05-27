@@ -17,6 +17,10 @@ export default async function handler(req, res) {
     marketing_opt_in
   } = req.body;
 
+  // if (!theme) {
+  //   return res.status(400).json({ message: 'Missing theme in request.' });
+  // }
+
   if (!theme || !first_name || !last_name || !email) {
     return res.status(400).json({ message: 'Missing required fields.' });
   }
@@ -46,6 +50,11 @@ export default async function handler(req, res) {
 
       if (!cleanedCode) {
         return res.status(400).json({ message: 'Unique Code is required.' });
+      }
+
+      if (!allowedCodes || !Array.isArray(allowedCodes)) {
+        console.warn(`[API] Code list not found or invalid: ${codeListName}`);
+        return res.status(400).json({ message: 'Code list not found for this campaign.' });
       }
 
       if (!allowedCodes.includes(cleanedCode)) {

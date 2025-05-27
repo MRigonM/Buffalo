@@ -26,36 +26,36 @@ export default function EnterNowPage() {
     <main className="_main">
       <div className="_content">
         <Header theme={siteConfig.theme} showExtraImage={false} />
-      </div>
 
-      <div className="bt-freixenet-home">
-        <div key="freixenet-diamond-image">
-          <Image
-            src="/images/freixenet/diamond-header.png"
-            width={370}
-            height={250}
-            quality={100}
-            className="freixenet-diamond-image"
-            alt="Freixenet Diamond Header"
+        <div className="bt-freixenet-entry-video-wrapper bt-freixenet-enter-now">
+          <video
+            className="bt-freixenet-entry-video"
+            src="/videos/freixenet/bottle_animation.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '100%' }}
           />
+
+          <div className="bt-freixenet-diamond-wrapper" key="freixenet-diamond-image">
+            <Image
+              src="/images/freixenet/diamond-header.png"
+              width={370}
+              height={250}
+              quality={100}
+              className="freixenet-diamond-image"
+              alt="Freixenet Diamond Header"
+            />
+          </div>
+
+          <button
+            className="submitButton"
+            onClick={() => router.push("/entry")}
+          >
+            Enter now
+          </button>
         </div>
-
-        <video
-          className="bt-freixenet-home-video"
-          src="/videos/freixenet/bottle_animation.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: "100%", height: "78vh" }}
-        />
-
-        <button
-          className="submitButton"
-          onClick={() => router.push("/entry")}
-        >
-          Enter now
-        </button>
       </div>
     </main>
   );

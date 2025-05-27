@@ -1,19 +1,4 @@
 
-@font-face {
-  font-family: 'EBGaramond';
-  src: url('/fonts/EBGaramond-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Matrix-II';
-  src: url('/fonts/Matrix-II-OT.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -122,8 +107,8 @@ a {
   --bt-gold: #D5C296;
   --bt-orange: #AD441D;
 
-  --typeface-primary: 'EBGaramond', serif;
-  --typeface-secondary: 'Matrix-II',serif;
+  --typeface-primary: serif;
+  --typeface-secondary: serif;
 
   --font-size-headline-elevated: 36px;
   --font-size-headline: 24px;
@@ -245,8 +230,8 @@ body.theme-bt-golf-tesco ._container {
 
 body.theme-bt-freixenet .bt-logo {
   background-image: url('/images/freixenet/header.png');
-  width: 180px;
-  height: 67px;
+  width: 136px;
+  height: 50px;
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -873,7 +858,15 @@ body[class^="theme-bt-freixenet"] .submitButton {
   border-radius: 10px;
   color: white;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
+}
+
+.bt-freixenet-enter-now {
+  height: 77vh;
+}
+
+.bt-freixenet-diamond-wrapper {
+  height: 100%;
 }
 
 .bt-freixenet-terms {
@@ -886,6 +879,17 @@ body[class^="theme-bt-freixenet"] .submitButton {
 
 .bt-freixenet-terms .checkmark {
   background: black;
+}
+
+.bt-freixenet-entry-video-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
 }
 
 .bt-freixenet-logo-wrapper {

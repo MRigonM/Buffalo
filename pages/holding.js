@@ -17,7 +17,7 @@ export default function HoldingPage({ siteConfig }) {
     title: <><span className="text-center bt-freixenet-holding-header">Sorry, you’re a little <br/> early, this promotion <br/> isn’t open just yet</span></>,
     body: [
         <>
-          Please come back <br/> and enter after <br/> xx/xx/xxxx.
+          Please come back <br/> and enter after <br/> <b>30th November 2025.</b>
         </>,
     ],
     extraContent: [

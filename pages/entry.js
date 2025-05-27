@@ -5,6 +5,7 @@ import TextInput from '../components/TextInput';
 import Dropdown from '../components/Dropdown';
 import { useState } from 'react';
 import Header from '../components/Header';
+import Image from 'next/image';
 
 
 const freixenet = {
@@ -147,210 +148,224 @@ export default function EntryPage({ siteConfig }) {
   return (
     <main className="_main">
       <div className="_content">
-        <Header theme={theme} />
-
-        <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase">
-          Enter your details below
-        </h2>
-
-        <video
-          className="bt-freixenet-entry-video"
-          src="/videos/freixenet/bg_animation.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/freixenet/age-background-confirm.png"
-          style={{ width: '100%' }}
-        />
-        <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
-
-          <TextInput
-            label="First Name*"
-            placeholder="First Name*"
-            name="firstName"
-            register={register}
-            required
-            error={errors.firstName}
+        <Header theme={theme} showExtraImage={false}/>
+        
+        <div className="bt-freixenet-entry-video-wrapper">
+          <video
+            className="bt-freixenet-entry-video"
+            src="/videos/freixenet/bg_animation.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/freixenet/age-background-confirm.png"
+            style={{ width: '100%' }}
           />
 
-          <TextInput
-            label="Last Name*"
-            placeholder="Last Name*"
-            name="lastName"
-            register={register}
-            required
-            error={errors.lastName}
-          />
-
-          <TextInput
-            label="Email Address*"
-            placeholder="Email Address*"
-            name="email"
-            register={register}
-            required
-            validationRules={{
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Invalid email format",
-              },
-            }}
-            error={errors.email}
-          />
-
-          {formVersion === '2' && (
-            <Dropdown
-              options={['Supervalu', 'Dunnes']}
-              placeholder="Where did you find us?*"
-              name="source"
-              register={register}
-              required
-              error={errors.source}
+          <div key="freixenet-diamond-image">
+            <Image
+              src="/images/freixenet/diamond-header.png"
+              width={270}
+              height={150}
+              quality={100}
+              className="freixenet-diamond-image"
+              alt="Freixenet Diamond Header"
             />
-          )}
-
-          {formVersion === '3' && (
-            <>
-              <TextInput
-                label="Unique Code*"
-                placeholder="Unique Code*"
-                name="uniqueCode"
-                register={register}
-                required
-                error={errors.uniqueCode}
-              />
-              <Dropdown
-                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                placeholder="Where did you purchase from?"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-            </>
-          )}
-
-          {formVersion === '4' && (
-            <>
-              <TextInput
-                label="Phone Number*"
-                placeholder="Phone Number*"
-                name="phone"
-                register={register}
-                required
-                validationRules={{
-                  pattern: {
-                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
-                    message: "Invalid phone number",
-                  },
-                }}
-                error={errors.phone}
-              />
-              <TextInput
-                label="Unique Code*"
-                placeholder="Unique Code*"
-                name="uniqueCode"
-                register={register}
-                required
-                error={errors.uniqueCode}
-              />
-              <Dropdown
-                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                placeholder="Where did you purchase from?"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-            </>
-          )}
-
-          {formVersion === '5' && (
-            <>
-              <TextInput
-                label="Confirm Email Address*"
-                placeholder="Confirm Email Address*"
-                name="email"
-                register={register}
-                required
-                validationRules={{
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email format",
-                  },
-                }}
-                error={errors.email}
-              />
-              <TextInput
-                label="Phone Number*"
-                placeholder="Phone Number*"
-                name="phone"
-                register={register}
-                required
-                validationRules={{
-                  pattern: {
-                    value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
-                    message: "Invalid phone number",
-                  },
-                }}
-                error={errors.phone}
-              />
-              <p className="text-center typography-body-text color-black">Tell us where you found us</p>
-              <Dropdown
-                options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                placeholder="Where did you purchase from?"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-            </>
-          )}
-
-          {theme !== 'bt-freixenet' && (
-            <p className="typography-body-reduced text-center">
-              All fields marked * are mandatory
-            </p>
-          )}
-
-          <div>
-            <label className="custom-checkbox">
-              <input
-                type="checkbox"
-                id="agreeTerms"
-                {...register('agreeTerms', { required: true })}
-                defaultChecked={false}
-              />
-              {terms}
-            </label>
-            {errors.agreeTerms && (
-              <span className="typography-body-reduced error">
-                You must agree before submitting
-              </span>
-            )}
-
-            <label className="custom-checkbox">
-              <input
-                type="checkbox"
-                id="optIn"
-                {...register('optIn')}
-                defaultChecked={false}
-              />
-              {futureCommunications}
-            </label>
           </div>
 
-          {generalError && (
-            <p className="form-error" style={{ color: 'red', textAlign: 'center', marginTop: '1rem' }}>
-              {generalError}
-            </p>
-          )}
+          <h2 className="headline typography-headline-elevated typeface-secondary text-center uppercase">
+            Enter your details below
+          </h2>
 
-          <button className="submitButton"
-                  type="submit">
-            {confirmButtonText}
-          </button>
-        </form>
+          <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
+
+            <TextInput
+              label="First Name*"
+              placeholder="First Name*"
+              name="firstName"
+              register={register}
+              required
+              error={errors.firstName}
+            />
+
+            <TextInput
+              label="Last Name*"
+              placeholder="Last Name*"
+              name="lastName"
+              register={register}
+              required
+              error={errors.lastName}
+            />
+
+            <TextInput
+              label="Email Address*"
+              placeholder="Email Address*"
+              name="email"
+              register={register}
+              required
+              validationRules={{
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Invalid email format",
+                },
+              }}
+              error={errors.email}
+            />
+
+            {formVersion === '2' && (
+              <Dropdown
+                options={['Supervalu', 'Dunnes']}
+                placeholder="Where did you find us?*"
+                name="source"
+                register={register}
+                required
+                error={errors.source}
+              />
+            )}
+
+            {formVersion === '3' && (
+              <>
+                <TextInput
+                  label="Unique Code*"
+                  placeholder="Unique Code*"
+                  name="uniqueCode"
+                  register={register}
+                  required
+                  error={errors.uniqueCode}
+                />
+                <Dropdown
+                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                  placeholder="Where did you purchase from?"
+                  name="source"
+                  register={register}
+                  required
+                  error={errors.source}
+                />
+              </>
+            )}
+
+            {formVersion === '4' && (
+              <>
+                <TextInput
+                  label="Phone Number*"
+                  placeholder="Phone Number*"
+                  name="phone"
+                  register={register}
+                  required
+                  validationRules={{
+                    pattern: {
+                      value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                      message: "Invalid phone number",
+                    },
+                  }}
+                  error={errors.phone}
+                />
+                <TextInput
+                  label="Unique Code*"
+                  placeholder="Unique Code*"
+                  name="uniqueCode"
+                  register={register}
+                  required
+                  error={errors.uniqueCode}
+                />
+                <Dropdown
+                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                  placeholder="Where did you purchase from?"
+                  name="source"
+                  register={register}
+                  required
+                  error={errors.source}
+                />
+              </>
+            )}
+
+            {formVersion === '5' && (
+              <>
+                <TextInput
+                  label="Confirm Email Address*"
+                  placeholder="Confirm Email Address*"
+                  name="email"
+                  register={register}
+                  required
+                  validationRules={{
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Invalid email format",
+                    },
+                  }}
+                  error={errors.email}
+                />
+                <TextInput
+                  label="Phone Number*"
+                  placeholder="Phone Number*"
+                  name="phone"
+                  register={register}
+                  required
+                  validationRules={{
+                    pattern: {
+                      value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
+                      message: "Invalid phone number",
+                    },
+                  }}
+                  error={errors.phone}
+                />
+                <p className="text-center typography-body-text color-black">Tell us where you found us</p>
+                <Dropdown
+                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                  placeholder="Where did you purchase from?"
+                  name="source"
+                  register={register}
+                  required
+                  error={errors.source}
+                />
+              </>
+            )}
+
+            {theme !== 'bt-freixenet' && (
+              <p className="typography-body-reduced text-center">
+                All fields marked * are mandatory
+              </p>
+            )}
+
+            <div>
+              <label className="custom-checkbox">
+                <input
+                  type="checkbox"
+                  id="agreeTerms"
+                  {...register('agreeTerms', { required: true })}
+                  defaultChecked={false}
+                />
+                {terms}
+              </label>
+              {errors.agreeTerms && (
+                <span className="typography-body-reduced error">
+                  You must agree before submitting
+                </span>
+              )}
+
+              <label className="custom-checkbox">
+                <input
+                  type="checkbox"
+                  id="optIn"
+                  {...register('optIn')}
+                  defaultChecked={false}
+                />
+                {futureCommunications}
+              </label>
+            </div>
+
+            {generalError && (
+              <p className="form-error" style={{ color: 'red', textAlign: 'center', marginTop: '1rem' }}>
+                {generalError}
+              </p>
+            )}
+
+            <button className="submitButton"
+                    type="submit">
+              {confirmButtonText}
+            </button>
+          </form>
+        </div>
       </div>
     </main>
   );

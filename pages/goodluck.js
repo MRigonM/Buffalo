@@ -50,7 +50,7 @@ so please keep a look out in your inbox</p>
       <>
         <div className="page-goodluck-last">
           <p className="text-center">
-            We will be drawing a winner on <br/> xx/xx/xxxx.
+            We will be drawing a winner on <br/> <b>30th November 2025.</b>
           </p>
           <p className="page-goodluck-last-p text-center">
             Please keep an eye on your <br/> email inbox to see if you&apos;re <br/>  one of our lucky winners!
