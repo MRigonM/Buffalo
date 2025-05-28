@@ -6,7 +6,7 @@ import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/post
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { fullName, email, phone, date_of_birth, version, optIn } = req.body;
+  const { fullName, email, phone, date_of_birth, version, source, source_other, optIn } = req.body;
   if (!firstName || !lastName || !email || !phone) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
@@ -20,6 +20,8 @@ export default function handler(req, res) {
     phone,
     date_of_birth,
     version,
+    source,
+    source_other,
     optedIn: !!optIn,
     submittedAt: new Date().toISOString(),
   });

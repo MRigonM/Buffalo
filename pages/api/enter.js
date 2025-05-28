@@ -12,6 +12,8 @@ export default async function handler(req, res) {
     phone,
     date_of_birth,
     version,
+    source,
+    source_other,
     marketing_opt_in,
   } = req.body;
 
@@ -59,17 +61,23 @@ export default async function handler(req, res) {
       }
     }
 
+    if (source === 'Other, please specify' && !source_other) {
+      return res.status(400).json({message: 'Please specify where you found us.'});
+    }
+
     // Insert the entry
     await query(
       `INSERT INTO submissions (
-            full_name, email, phone, date_of_birth, marketing_opt_in, submitted_at
-            ) VALUES ($1, $2, $3, $4, $5, NOW())`,
+            full_name, email, phone, date_of_birth, marketing_opt_in, source, source_other, submitted_at
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW())`,
       [
         full_name,
         email,
         phone?.trim() === '' ? null : phone,
         date_of_birth || null,
-        marketing_opt_in || 'NO'
+        marketing_opt_in || 'NO',
+        source || null,
+        source_other || null
       ]
     );
 

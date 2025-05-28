@@ -55,6 +55,7 @@ const sharedRugbyCopy = {
 
 export default function EntryPage({ siteConfig }) {
   const { formVersion } = siteConfig;
+  const [sourceValue, setSourceValue] = useState('');
   const {
     register,
     handleSubmit,
@@ -82,6 +83,8 @@ export default function EntryPage({ siteConfig }) {
       marketing_opt_in: data.optIn ? 'YES' : 'NO',
       version: siteConfig.formVersion,
       theme: siteConfig.theme,
+      source: data.source,
+      ...(data.source === 'Other, please specify' && { source_other: data.source_other }),
       ...(siteConfig.formVersion === '4' && { phone: data.phone || null }),
     };
 
@@ -251,7 +254,18 @@ export default function EntryPage({ siteConfig }) {
                   register={register}
                   required
                   error={errors.source}
+                  onChange={(e) => setSourceValue(e.target.value)}
                 />
+                {sourceValue === 'Other, please specify' && (
+                    <TextInput
+                        label="Please specify*"
+                        placeholder="Enter where you found us"
+                        name="source_other"
+                        register={register}
+                        required
+                        error={errors.source_other}
+                    />
+                )}
               </>
             )}
 

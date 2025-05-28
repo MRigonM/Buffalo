@@ -1,10 +1,12 @@
 // components/Dropdown.js
 
 
-export default function Dropdown({ name, options = [], register, required, placeholder }) {
+export default function Dropdown({ name, options = [], register, required, placeholder, onChange }) {
   return (
     <div className="dropdown">
-      <select {...register(name, { required })} defaultValue="">
+      <select {...register(name, { required })}
+              defaultValue=""
+                onChange={onChange}>
         <option value="" disabled hidden>
           {placeholder || '-- Select an option --'}
         </option>
