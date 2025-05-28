@@ -107,8 +107,8 @@ a {
   --bt-gold: #D5C296;
   --bt-orange: #AD441D;
 
-  --typeface-primary: serif;
-  --typeface-secondary: serif;
+  --typeface-primary: montserrat;
+  --typeface-secondary: montserrat;
 
   --font-size-headline-elevated: 36px;
   --font-size-headline: 24px;
@@ -948,7 +948,7 @@ body[class^="theme-bt-freixenet"] .age-content .typeface-secondary h1 {
 }
 
 body[class^="theme-bt-freixenet"] .age-content .input-group .age-gate-year {
-  width: 42px;
+  width: 50px;
 }
 
 body[class^="theme-bt-freixenet"] .age-content .input-group input {

@@ -98,6 +98,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/jwp3njx.css"></link>
         <title>Freixenet</title>
       </Head>
 
