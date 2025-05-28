@@ -107,7 +107,7 @@ export default function AgeGate({ onAgeConfirmed }) {
             <p className="typography-body-reduced-age-gate">
               Please enter <br /> your date <br/> of birth
             </p>
-            <button type="submit" className="submitAge">Enter</button>
+            <button type="submit" className="submitAge uppercase">Enter</button>
           </div>
         </form>
       </div>

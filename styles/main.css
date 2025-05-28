@@ -113,8 +113,8 @@ a {
   --font-size-headline-elevated: 36px;
   --font-size-headline: 24px;
   --font-size-headline-reduced: 20px;
-  --font-size-body: 18px;
-  --font-size-body-reduced: 14px;
+  --font-size-body: 15px;
+  --font-size-body-reduced: 12px;
 
 
   --content-width: clamp(320px,100vw,430px);
@@ -141,7 +141,7 @@ body[class^="theme-bt-rugby-"].page-entry .typography-headline-elevated {
   line-height: 1;
 }
 body[class^="theme-bt-freixenet"].page-entry .typography-headline-elevated { 
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1;
   color: black;
   text-transform: none;
@@ -152,7 +152,7 @@ body[class^="theme-bt-freixenet"].page-entry .typography-headline-elevated {
  }
 .typography-headline-reduced { }
 .typography-body { 
-  font-size: 18px;
+  font-size: 16px;
   line-height: 20px;
 }
 .typography-body-reduced { 
@@ -233,7 +233,7 @@ body.theme-bt-freixenet .bt-logo {
   width: 136px;
   height: 50px;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .bt-x-dp-wt-logo {
@@ -394,7 +394,7 @@ body[class^="theme-bt-freixenet"] .footer {
 
 body[class^="theme-bt-freixenet"] .footer-copy { 
   justify-content: start;
-  margin-top: 15px;
+  margin-top: 5px;
   color: white;
 }
 
@@ -675,7 +675,7 @@ body[class^="theme-bt-freixenet"] ._content {
   padding-inline: 10px;
   line-height: 35px;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 35px;
 }
 .page-entry .entry-form .dropdown select {
@@ -683,7 +683,7 @@ body[class^="theme-bt-freixenet"] ._content {
   padding-right: 50px;
   line-height: 35px;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 35px;
 }
 
@@ -897,7 +897,7 @@ body[class^="theme-bt-freixenet"] .submitButton {
   justify-content: center;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  margin-top: -25px;
+  margin-top: -10px;
   width: 100vw;
   background-color: black;
 }
@@ -943,7 +943,7 @@ body[class^="theme-bt-freixenet"] .age-content {
 
 body[class^="theme-bt-freixenet"] .age-content .typeface-secondary h1 {
   text-align: center;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 24px;
 }
 
@@ -953,7 +953,7 @@ body[class^="theme-bt-freixenet"] .age-content .input-group .age-gate-year {
 
 body[class^="theme-bt-freixenet"] .age-content .input-group input {
   border: 1.5px solid black;
-  width: 30px;
+  width: 33px;
   padding: 10px;
   border-radius: 5px;
 }
