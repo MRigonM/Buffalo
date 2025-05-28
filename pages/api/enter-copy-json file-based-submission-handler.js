@@ -1,12 +1,13 @@
 // pages/api/enter.js
 import fs from 'fs';
 import path from 'path';
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { firstName, lastName, email, source, uniqueCode, version, optIn } = req.body;
-  if (!firstName || !lastName || !email) {
+  const { fullName, email, phone, date_of_birth, version, optIn } = req.body;
+  if (!firstName || !lastName || !email || !phone) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
@@ -14,11 +15,10 @@ export default function handler(req, res) {
   const entries = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file)) : [];
 
   entries.push({
-    firstName,
-    lastName,
+    fullName,
     email,
-    source: source || null,
-    uniqueCode: uniqueCode || null,
+    phone,
+    date_of_birth,
     version,
     optedIn: !!optIn,
     submittedAt: new Date().toISOString(),

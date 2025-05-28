@@ -7,25 +7,22 @@ export default async function handler(req, res) {
 
   const {
     theme,
-    first_name,
-    last_name,
+    full_name,
     email,
     phone,
-    source,
-    unique_code,
+    date_of_birth,
     version,
-    marketing_opt_in
+    marketing_opt_in,
   } = req.body;
 
   // if (!theme) {
   //   return res.status(400).json({ message: 'Missing theme in request.' });
   // }
 
-  if (!theme || !first_name || !last_name || !email) {
+  if (!theme || !full_name || !email || !phone) {
     return res.status(400).json({ message: 'Missing required fields.' });
   }
 
-  const cleanedCode = unique_code?.trim() || null;
   const normalizedTheme = theme.replace(/-/g, '_');
   const codeListName = codeListMap[normalizedTheme];
 
@@ -48,26 +45,9 @@ export default async function handler(req, res) {
     if (['3', '4'].includes(version) && codeListName) {
       const allowedCodes = await loadCodesFromCSV(codeListName);
 
-      if (!cleanedCode) {
-        return res.status(400).json({ message: 'Unique Code is required.' });
-      }
-
       if (!allowedCodes || !Array.isArray(allowedCodes)) {
         console.warn(`[API] Code list not found or invalid: ${codeListName}`);
         return res.status(400).json({ message: 'Code list not found for this campaign.' });
-      }
-
-      if (!allowedCodes.includes(cleanedCode)) {
-        return res.status(400).json({ message: 'Invalid Unique Code.' });
-      }
-
-      const check = await query(
-        'SELECT COUNT(*) FROM submissions WHERE unique_code = $1',
-        [cleanedCode]
-      );
-
-      if (parseInt(check.rows[0].count, 10) > 0) {
-        return res.status(409).json({ message: 'This Unique Code has already been used.' });
       }
     }
 
@@ -82,16 +62,13 @@ export default async function handler(req, res) {
     // Insert the entry
     await query(
       `INSERT INTO submissions (
-        first_name, last_name, email, phone, source,
-        unique_code, marketing_opt_in, submitted_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW())`,
+            full_name, email, phone, date_of_birth, marketing_opt_in, submitted_at
+            ) VALUES ($1, $2, $3, $4, $5, NOW())`,
       [
-        first_name,
-        last_name,
+        full_name,
         email,
-        phone || null,
-        source || null,
-        cleanedCode,
+        phone?.trim() === '' ? null : phone,
+        date_of_birth || null,
         marketing_opt_in || 'NO'
       ]
     );

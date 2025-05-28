@@ -75,11 +75,10 @@ export default function EntryPage({ siteConfig }) {
     }
 
     const payload = {
-      first_name: data.firstName,
-      last_name: data.lastName,
+      full_name: data.fullName,
       email: data.email.toLowerCase(),
-      source: data.source || null,
-      unique_code: data.uniqueCode || null,
+      phone: data.phone ,
+      date_of_birth: data.date_of_birth,
       marketing_opt_in: data.optIn ? 'YES' : 'NO',
       version: siteConfig.formVersion,
       theme: siteConfig.theme,
@@ -101,18 +100,16 @@ export default function EntryPage({ siteConfig }) {
       } else {
         const msg = result.message?.toLowerCase() || '';
 
-        if (msg.includes('first name')) {
-          setError('firstName', { type: 'server', message: result.message });
-        } else if (msg.includes('last name')) {
-          setError('lastName', { type: 'server', message: result.message });
+        if (msg.includes('full name')) {
+          setError('fullName', { type: 'server', message: result.message });
         } else if (msg.includes('email')) {
           setError('email', { type: 'server', message: result.message });
         } else if (msg.includes('already been registered')|| msg.includes('once per week')) {
           setError('email', { type: 'server', message: result.message });
-        } else if (msg.includes('unique code')) {
-          setError('uniqueCode', { type: 'server', message: result.message });
         } else if (msg.includes('phone')) {
           setError('phone', { type: 'server', message: result.message });
+        }else if (msg.includes('date of birth')) {
+          setError('date_of_birth', { type: 'server', message: result.message });
         } else {
           setGeneralError(result.message || 'Something went wrong — please try again.');
         }
@@ -180,21 +177,12 @@ export default function EntryPage({ siteConfig }) {
           <form className="entry-form" onSubmit={handleSubmit(onSubmit)}>
 
             <TextInput
-              label="First Name*"
-              placeholder="First Name*"
-              name="firstName"
+              label="Full Name*"
+              placeholder="Full Name*"
+              name="fullName"
               register={register}
               required
-              error={errors.firstName}
-            />
-
-            <TextInput
-              label="Last Name*"
-              placeholder="Last Name*"
-              name="lastName"
-              register={register}
-              required
-              error={errors.lastName}
+              error={errors.fullName}
             />
 
             <TextInput
@@ -211,73 +199,6 @@ export default function EntryPage({ siteConfig }) {
               }}
               error={errors.email}
             />
-
-            {formVersion === '2' && (
-              <Dropdown
-                options={['Supervalu', 'Dunnes']}
-                placeholder="Where did you find us?*"
-                name="source"
-                register={register}
-                required
-                error={errors.source}
-              />
-            )}
-
-            {formVersion === '3' && (
-              <>
-                <TextInput
-                  label="Unique Code*"
-                  placeholder="Unique Code*"
-                  name="uniqueCode"
-                  register={register}
-                  required
-                  error={errors.uniqueCode}
-                />
-                <Dropdown
-                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                  placeholder="Where did you purchase from?"
-                  name="source"
-                  register={register}
-                  required
-                  error={errors.source}
-                />
-              </>
-            )}
-
-            {formVersion === '4' && (
-              <>
-                <TextInput
-                  label="Phone Number*"
-                  placeholder="Phone Number*"
-                  name="phone"
-                  register={register}
-                  required
-                  validationRules={{
-                    pattern: {
-                      value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/,
-                      message: "Invalid phone number",
-                    },
-                  }}
-                  error={errors.phone}
-                />
-                <TextInput
-                  label="Unique Code*"
-                  placeholder="Unique Code*"
-                  name="uniqueCode"
-                  register={register}
-                  required
-                  error={errors.uniqueCode}
-                />
-                <Dropdown
-                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
-                  placeholder="Where did you purchase from?"
-                  name="source"
-                  register={register}
-                  required
-                  error={errors.source}
-                />
-              </>
-            )}
 
             {formVersion === '5' && (
               <>
@@ -309,9 +230,22 @@ export default function EntryPage({ siteConfig }) {
                   }}
                   error={errors.phone}
                 />
+                <TextInput
+                    label="Date of Birth*"
+                    placeholder="Date of Birth*"
+                    name="date_of_birth"
+                    register={register}
+                    required
+                    error={errors.date_of_birth}
+                    type="date"
+                />
+
                 <p className="text-center typography-body-text color-black">Tell us where you found us</p>
                 <Dropdown
-                  options={['Tesco', 'Sainsbury’s', 'Asda', 'Morrisons', 'Waitrose', 'Co-op', 'Other']}
+                  options={['Tesco', 'Sainsbury’s','Waitrose',
+                            'Asda', 'Morrisons', 'Waitrose',
+                            'Convenience','Bar/pub/restaurant',
+                            'Social media', 'Other, please specify']}
                   placeholder="Where did you purchase from?"
                   name="source"
                   register={register}
